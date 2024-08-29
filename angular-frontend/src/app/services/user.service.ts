@@ -5,14 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ItemService {
-  private apiUrl = 'http://localhost:8000/api/items/';  // URL to Django API
+export class UserService {
+  private apiUrl = 'http://localhost:8000/api/users/';
 
   constructor(private http: HttpClient) { }
 
-  getItems(): Observable<any[]> {
+  getUser(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
-
-  // Add other methods to post, put, or delete items if needed
 }

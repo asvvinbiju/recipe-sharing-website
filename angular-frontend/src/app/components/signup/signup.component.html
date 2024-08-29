@@ -1,0 +1,12 @@
+<p>signup works <span class="bi-arrow-right"></span></p>
+
+<form action="" #form1="ngForm" class="container" style="width: 30%;" (ngSubmit)="getData(form1.value)">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" ngModel required #name1="ngModel" name="name" placeholder="enter your name" class="form-control">
+    <span *ngIf="name1.touched && name1.invalid" style="color: red;">*required</span><br>
+    <label for="email" class="form-label">Email</label>
+    <input type="text" ngModel #email name="email" placeholder="enter your email" class="form-control">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="text" ngModel #phone name="phone" placeholder="enter your phone number" class="form-control">
+    <input type="submit" value="save" class="form-control bg-success text-light mt-4" [disabled]="form1.invalid">
+</form>
