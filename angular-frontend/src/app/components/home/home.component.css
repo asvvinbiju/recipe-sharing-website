@@ -1,0 +1,53 @@
+body {
+    height: max-content;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+.recipe-container {
+    margin: 40px;
+}
+
+.recipes {
+    height: max-content;
+    width: 20rem;
+    margin: 20px;
+}
+
+.recipes > .card-body > .card-text {
+    font-size: 20px;
+    font-family: zodiak;
+    margin-top: 20px;
+}
+
+.recipes > .card-body > .card-title {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: melodrama;
+    text-decoration: none;
+}
+
+.recipes > .card-body > .card-title:hover {
+    font-size: 40px;
+    font-family: melodrama;
+    font-weight: bold;
+    text-decoration: underline yellow 5px;
+}
+
+
+
+.submittedby {
+    font-size: 20px;
+    font-family: gambarino;
+    font-style: italic;
+}
+
+.tags > a {
+    margin-top: 40px;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: orangered;
+    font-family: satoshi;
+    /* margin: 5px; */
+    color: white;
+}

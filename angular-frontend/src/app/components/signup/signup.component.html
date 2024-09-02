@@ -1,12 +1,21 @@
-<p>signup works <span class="bi-arrow-right"></span></p>
 
-<form action="" #form1="ngForm" class="container" style="width: 30%;" (ngSubmit)="getData(form1.value)">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" ngModel required #name1="ngModel" name="name" placeholder="enter your name" class="form-control">
-    <span *ngIf="name1.touched && name1.invalid" style="color: red;">*required</span><br>
-    <label for="email" class="form-label">Email</label>
-    <input type="text" ngModel #email name="email" placeholder="enter your email" class="form-control">
-    <label for="phone" class="form-label">Phone</label>
-    <input type="text" ngModel #phone name="phone" placeholder="enter your phone number" class="form-control">
-    <input type="submit" value="save" class="form-control bg-success text-light mt-4" [disabled]="form1.invalid">
-</form>
+
+<div class="div" id="signupform">
+    <form action="" #form1="ngForm" class="container" (ngSubmit)="signupUser(form1.value)">
+        <h1>Signup</h1>
+        <label for="name" class="form-label">Username</label>
+        <input type="text" ngModel required #name1="ngModel" name="username" placeholder="Enter a username" class="form-control">
+        <span *ngIf="name1.touched && name1.invalid" style="color: red;">*username required</span><br>
+        <label for="email" class="form-label">Email address</label> 
+        <input type="text" ngModel required #email1="ngModel" name="email" placeholder="Enter your email" class="form-control">
+        <span *ngIf="email1.touched && email1.invalid" style="color: red;">*email required</span><br>
+        <label for="password" class="form-label">Password</label>
+        <input type="password" ngModel required #password1="ngModel" name="password" placeholder="Enter a password" class="form-control">
+        <span *ngIf="password1.touched && password1.invalid" style="color: red;">*password required</span><br>
+        <label for="confirmpassword" class="form-label">Confirm password</label>
+        <input type="password" ngModel required #confirmpassword1="ngModel" name="confirmpassword" placeholder="Retype your password again here" class="form-control">
+        <span *ngIf="password1.value !== confirmpassword1.value && confirmpassword1.touched" style="color: red;">*password do not match!</span><br>
+        <input type="submit" value="Register" class="form-control bg-success text-light" [disabled]="form1.invalid">
+    </form>
+</div>
+

@@ -5,11 +5,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { MyprofileComponent } from './components/myprofile/myprofile.component';
+import { SubmitrecipeComponent } from './components/submitrecipe/submitrecipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent,
+    LoginComponent,
+    MyprofileComponent,
+    SubmitrecipeComponent
   ],
   imports: [
     BrowserModule,

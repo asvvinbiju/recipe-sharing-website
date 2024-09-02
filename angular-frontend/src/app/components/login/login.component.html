@@ -1,0 +1,16 @@
+
+
+
+<div class="div" id="signupform">
+    <form action="" #form1="ngForm" class="container" (ngSubmit)="loginUser(form1.value)">
+        <h1>Login</h1>
+        <label for="name" class="form-label">Username</label>
+        <input type="text" ngModel required #name1="ngModel" name="username" placeholder="Enter a username" class="form-control">
+        <span *ngIf="name1.touched && name1.invalid" style="color: red;">*username required</span><br>
+        <label for="password" class="form-label">Password</label>
+        <input type="password" ngModel required #password1="ngModel" name="password" placeholder="Enter a password" class="form-control">
+        <span *ngIf="password1.touched && password1.invalid" style="color: red;">*password required</span><br>
+        <input type="submit" value="Login" class="form-control bg-success text-light" [disabled]="form1.invalid">
+    </form>
+</div>
+

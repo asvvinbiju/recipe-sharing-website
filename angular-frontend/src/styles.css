@@ -1,3 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("~bootstrap/dist/css/bootstrap.min.css");
 @import url("~bootstrap-icons/font/bootstrap-icons.css");
+
+@font-face {
+    font-family: "chilanka";
+    src: url("./assets/fonts/Chilanka-Regular.ttf");
+}
+
+@font-face {
+    font-family: "gambarino";
+    src: url("./assets/fonts/Gambarino/Fonts/WEB/fonts/Gambarino-Regular.woff2");
+}
+
+@font-face {
+    font-family: "dancing script";
+    src: url("./assets/fonts/DancingScript_Complete/Fonts/WEB/fonts/DancingScript-Bold.woff2");
+}
+
+@font-face {
+    font-family: "stardom";
+    src: url("./assets/fonts/Stardom_Complete/Fonts/WEB/fonts/Stardom-Regular.woff2");
+}
+
+@font-face {
+    font-family: "satoshi";
+    src: url("./assets/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2");
+}
+
+@font-face {
+    font-family: "melodrama";
+    src: url("./assets/fonts/Melodrama_Complete/Fonts/WEB/fonts/Melodrama-Medium.woff2");
+}
+
+@font-face {
+    font-family: "melodrama";
+    font-weight: bold;
+    src: url("./assets/fonts/Melodrama_Complete/Fonts/WEB/fonts/Melodrama-Bold.woff2");
+}
+
+@font-face {
+    font-family: "zodiak";
+    src: url("./assets/fonts/Zodiak_Complete/Fonts/WEB/fonts/Zodiak-Regular.woff2");
+}
+
+@font-face {
+    font-family: "karumbi";
+    src: url("./assets/fonts/Karumbi-Regular.woff2");
+}
