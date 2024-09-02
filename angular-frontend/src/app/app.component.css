@@ -44,6 +44,7 @@ a {
     color: black;
     font-family: gambarino;
     font-size: 20px;
+    cursor: pointer;
 }
 
 input[type="search"] {

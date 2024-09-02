@@ -1,29 +1,37 @@
 
+body {
+    margin: 100px;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+}
+
+.userdetails {
+    height: max-content;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 
 
-#username, #followers, #f_count {
+#followers, #f_count {
     text-align: center;
     font-family: melodrama;
+    font-size: 30px;
+}
+#username {
+    text-align: center;
+    font-family: melodrama;
+    font-size: 50px;
 }
 
-.col {
-    margin: 0;
-    padding: 0;
-}
-
-.col > .btn {
-    width: 100%;
-    border-left: 1px black solid;
-    /* border-top: 1px black solid;
-    border-bottom: 1px black solid; */
-    border-radius: 0;   
-    background-color: rgb(233, 233, 233);
-}
-.col > .btn:hover {
-    width: 100%;
-    /* border-left: 1px black solid;
-    border-top: 1px black solid;
-    border-bottom: 1px black solid; */
-    border-radius: 0;   
-    background-color: lightgrey;
+.col-3 > .btn {
+    width: 200px;
+    font-family: stardom;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+    background-color: orange;
+    color: white;
 }

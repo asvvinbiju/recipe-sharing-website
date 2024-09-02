@@ -1,16 +1,19 @@
 
-<div class="row .userdetails" *ngIf="userProfile">
-    <div class="col-6">
-        <div class="div">
-            <h1 id="username">{{userProfile.user.username}}</h1>
-            <p id="followers">Followers</p>
-            <p id="f_count">{{followersCount}}</p>
+<div class="userdetails">
+    <div class="row" *ngIf="userProfile">
+        <div class="col-6">
+            <div class="div">
+                <h1 id="username">{{userProfile.user.username}}</h1>
+                <p id="followers">Followers</p>
+                <p id="f_count">{{followersCount}}</p>
+            </div>
         </div>
-    </div>
-    <div class="col-2">
-        <button class="btn">Saved Recipes</button>
-    </div>
-    <div class="col-2">
-        <button class="btn">Your recipes</button>
+        <div class="col-3">
+            <button class="btn"><span>Saved Recipes</span><i class="bi-bookmark"></i></button>
+            
+        </div>
+        <div class="col-3">
+            <button class="btn"><span>Your Recipes</span><i class="bi-journal"></i></button>
+        </div>
     </div>
 </div>

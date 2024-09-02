@@ -24,8 +24,8 @@ export class LoginComponent {
           console.error('Token not received', response);
         }
       }, error => {
+        alert("Login failed! Try signing up if you dont have an account.")
         console.error('Login failed', error);
-        alert("Login failed!")
       });
   }
 }

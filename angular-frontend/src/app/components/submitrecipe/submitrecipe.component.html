@@ -1,1 +1,12 @@
-<p>submitrecipe works!</p>
+
+<div class="div" id="recipeform">
+    <form #recipeform="ngForm" class="container">
+        <h1>Submit a Recipe</h1>
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" ngModel required #title1="ngModel" name="title" placeholder="Enter recipe title" class="form-control">
+        <label for="desc" class="form-label">Description</label>
+        <textarea name="desc" id="desc" #desc1="ngModel" ngModel required placeholder="Enter a description" class="form-control" rows="5"></textarea>
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" ngModel required #title1="ngModel" name="title" placeholder="Enter recipe title" class="form-control">
+    </form>
+</div>
