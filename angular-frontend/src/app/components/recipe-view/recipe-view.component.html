@@ -1,0 +1,25 @@
+<div class="div" id="recipeframe">
+    <div class="div" id="recipecontainer">
+        <h1 id="title">{{recipe.title}}</h1>
+        <h1 class="rinfo col-8">SUBMITTED AT {{recipe.created_at}}</h1>
+        <div class="row" id="rdetails">
+            <p id="user">submitted by<a href="#">{{recipe.created_by}}</a></p>
+            <p id="desc">{{recipe.description}}</p>
+        </div>
+        <div class="row" id="rimg">
+            <img src="{{recipe.image}}" alt="recipe image" id="img">
+        </div>
+        <div class="row">
+            <div class="div col-4 cookinginfo">
+                <h1 class="h1 mtitle">Ingredients</h1>
+                <ul *ngFor="let ing of ingredients">
+                    <li class="mtext">{{ing}}</li>
+                </ul>
+            </div>
+            <div class="div col cookinginfo">
+                <h1 class="h1 mtitle">How to cook</h1>
+                <p class="mtext">{{recipe.instructions}}</p>
+            </div>
+        </div>
+    </div>
+</div>

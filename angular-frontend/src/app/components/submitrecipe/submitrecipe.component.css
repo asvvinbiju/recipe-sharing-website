@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    height: 100%;
+    width: 100%;
+}
+
+#recipeformcontainer {
+    height: max-content;
+    background-image: url("../../../assets/images/pexels-ella-olsson-572949-1640774.jpg");
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+form > h1 {
+    font-family: stardom;
+    font-size: 50px;
+    align-self: flex-start;
+    margin-bottom: 40px;
+}
+
+form {
+    width: 50%;
+    height: max-content;
+    margin: 100px;
+    padding: 40px;
+    background-color: whitesmoke;
+    align-self: flex-start;
+}
+
+input {
+    height: 50px;
+    width: 100%;
+    font-family: zodiak;
+    font-size: 20px;
+    /* font-style: italic; */
+    color: black;
+}
+
+input[type="file"] {
+    height: 43px;
+    width: 100%;
+    font-family: zodiak;
+    font-size: 20px;
+    /* font-style: italic; */
+    color: black;
+}
+
+textarea {
+    height: 200px;
+    width: 100%;
+    font-family: zodiak;
+    font-size: 20px;
+    /* font-style: italic; */
+    color: black;
+}
+
+label {
+    font-family: satoshi;
+    font-size: 23px;
+    margin-top: 20px;
+}
+
+input[type="submit"] {
+    font-family: Zodiak;
+    font-style: normal;
+    font-size: 18px;
+    height: 60px;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    background-color: orange;
+    color: white;
+}
+
+#clearbtn {
+    font-size: 15px;
+    background-color: orange;
+    color: white;
+    width: 120px;
+}

@@ -53,5 +53,12 @@ export class AuthService {
     });
   }
 
+  recipeHeaders(): HttpHeaders {
+    const token = this.getToken();
+    return new HttpHeaders({
+      'Authorization': `Token ${token}`,
+    });
+  }
+
   
 }

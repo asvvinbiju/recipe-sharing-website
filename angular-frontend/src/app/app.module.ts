@@ -9,6 +9,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
 import { SubmitrecipeComponent } from './components/submitrecipe/submitrecipe.component';
+import { UserRecipesComponent } from './components/user-recipes/user-recipes.component';
+import { SavedRecipesComponent } from './components/saved-recipes/saved-recipes.component';
+import { RecipeViewComponent } from './components/recipe-view/recipe-view.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { SubmitrecipeComponent } from './components/submitrecipe/submitrecipe.co
     HomeComponent,
     LoginComponent,
     MyprofileComponent,
-    SubmitrecipeComponent
+    SubmitrecipeComponent,
+    UserRecipesComponent,
+    SavedRecipesComponent,
+    RecipeViewComponent
   ],
   imports: [
     BrowserModule,

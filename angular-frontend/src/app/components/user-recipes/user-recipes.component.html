@@ -1,0 +1,15 @@
+<!-- recipe-list.component.html -->
+<div *ngIf="recipes.length > 0" class="recipe-container">
+    <div *ngFor="let recipe of recipes">
+        <div class="card row">
+            <img *ngIf="recipe.image" class="rimg col" [src]="recipe.image" alt="{{ recipe.title }}" />
+            <div class="div col card-details">
+                <h3 class="card-title">{{ recipe.title }}</h3>
+                <p class="card-text">{{ recipe.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="recipes.length === 0">
+    <p id="notsaved">You have no recipes yet.</p>
+</div>

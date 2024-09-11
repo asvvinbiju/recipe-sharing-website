@@ -1,0 +1,36 @@
+
+
+.rimg {
+    height: 20rem;
+    width: 30rem;
+    border-radius: 5px;
+}
+
+.card {
+    height: max-content;
+    width: 95%;
+    margin: 40px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    padding: 20px;
+}
+
+.card-title {
+    font-family: melodrama;
+    font-size: 40px;
+}
+
+.card-text {
+    width: 800px;
+    text-wrap: wrap;
+    font-family: zodiak;
+}
+
+#notsaved {
+    font-family: gambarino;
+    margin: 30px;
+}

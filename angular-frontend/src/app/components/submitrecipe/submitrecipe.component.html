@@ -1,12 +1,36 @@
 
-<div class="div" id="recipeform">
-    <form #recipeform="ngForm" class="container">
+<div class="div" id="recipeformcontainer">
+    <form #recipeform="ngForm" class="container" (ngSubmit)="onSubmit(recipeform.value)">
         <h1>Submit a Recipe</h1>
+
+        <!-- title field -->
         <label for="title" class="form-label">Title</label>
         <input type="text" id="title" ngModel required #title1="ngModel" name="title" placeholder="Enter recipe title" class="form-control">
+
+        <!-- description field -->
         <label for="desc" class="form-label">Description</label>
         <textarea name="desc" id="desc" #desc1="ngModel" ngModel required placeholder="Enter a description" class="form-control" rows="5"></textarea>
-        <label for="title" class="form-label">Title</label>
-        <input type="text" id="title" ngModel required #title1="ngModel" name="title" placeholder="Enter recipe title" class="form-control">
+
+        <!-- image field -->
+        <label for="image" class="form-label">Recipe image</label>
+        <input type="file" id="image" class="form-control" accept="image/*" (change)="onFileSelected($event)">
+        <div *ngIf="selectedFile">
+            <p>Selected file: {{selectedFile.name}}</p>
+        </div>
+
+        <!-- ingredients field -->
+        <label for="ingredients" class="form-label col-2">Ingredients</label>
+        <input type="text" id="ingredients" [(ngModel)]="ingredient" (keyup.enter)="addIngredient()" name="ingredients" placeholder="Enter each recipe ingredients and press enter." class="form-control">
+        <ul class="mt-2">
+            <li *ngFor="let ing of ingredients">{{ ing }}</li>
+        </ul>
+        <a class="btn col-2" id="clearbtn" (click)="onClear()">Clear all</a><br>
+
+        <!-- instructions field -->
+        <label for="instructions" class="form-label">instructions</label>
+        <textarea rows="8" id="instructions" ngModel required #instructions1="ngModel" name="instructions" placeholder="Enter recipe instructions" class="form-control"></textarea>
+
+        <!-- submit field -->
+        <input type="submit" value="Submit recipe" class="form-control mt-4" [disabled]="recipeform.invalid || ingredients.length === 0">
     </form>
 </div>

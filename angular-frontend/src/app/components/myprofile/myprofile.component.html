@@ -1,4 +1,3 @@
-
 <div class="userdetails">
     <div class="row" *ngIf="userProfile">
         <div class="col-6">
@@ -9,11 +8,12 @@
             </div>
         </div>
         <div class="col-3">
-            <button class="btn"><span>Saved Recipes</span><i class="bi-bookmark"></i></button>
-            
+            <button class="btn"  (click)="savedRecipes()"><span>Saved Recipes</span><i class="bi-bookmark"></i></button>
         </div>
         <div class="col-3">
-            <button class="btn"><span>Your Recipes</span><i class="bi-journal"></i></button>
+            <button class="btn" (click)="yourRecipes()"><span>Your Recipes</span><i class="bi-journal"></i></button>
         </div>
     </div>
 </div>
+<app-user-recipes *ngIf="isRecipeVisible"></app-user-recipes>
+<app-saved-recipes *ngIf="isSavedRecipeVisible"></app-saved-recipes>

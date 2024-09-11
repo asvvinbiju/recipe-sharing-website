@@ -8,10 +8,28 @@ body {
     margin: 40px;
 }
 
+.img {
+    width: auto;
+    height: auto;
+}
+
+.noimg {
+    width: 20rem;
+    height: 17rem;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: gambarino;
+    color: black;
+}
+
 .recipes {
-    height: max-content;
+    height: 53rem;
+    overflow: hidden;
     width: 20rem;
     margin: 20px;
+    padding: 10px;
 }
 
 .recipes > .card-body > .card-text {
@@ -25,6 +43,12 @@ body {
     font-weight: bold;
     font-family: melodrama;
     text-decoration: none;
+}
+
+button[class="card-title btn"] {
+    border: none;
+    width: fit-content;
+    height: max-content;
 }
 
 .recipes > .card-body > .card-title:hover {

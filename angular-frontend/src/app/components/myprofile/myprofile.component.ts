@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { AuthService, LoginResponse } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { max } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -14,8 +15,10 @@ import { max } from 'rxjs';
 export class MyprofileComponent {
   userProfile: any;
   followersCount: number = 0;
+  isRecipeVisible = false;
+  isSavedRecipeVisible = false;
 
-  constructor(private userService: UserService, private authService: AuthService, private http:HttpClient) { }
+  constructor(private router: Router, private authService: AuthService, private http:HttpClient) { }
 
   ngOnInit(): void {
     this.loadUserProfile();
@@ -39,5 +42,14 @@ export class MyprofileComponent {
     } else {
       console.error('User ID is null, cannot load profile')
     }
+  }
+
+  yourRecipes() {
+    this.isRecipeVisible = !this.isRecipeVisible;
+    this.isSavedRecipeVisible = false;
+  }
+  savedRecipes() {
+    this.isSavedRecipeVisible = !this.isSavedRecipeVisible;
+    this.isRecipeVisible = false;
   }
 }
