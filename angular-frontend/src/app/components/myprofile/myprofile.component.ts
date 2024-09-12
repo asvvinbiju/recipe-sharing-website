@@ -14,7 +14,8 @@ import { Router } from '@angular/router';
 })
 export class MyprofileComponent {
   userProfile: any;
-  followersCount: number = 0;
+  followingCount: number = 0;
+  followerCount: number = 0;
   isRecipeVisible = false;
   isSavedRecipeVisible = false;
 
@@ -33,7 +34,7 @@ export class MyprofileComponent {
         data => {
           console.log('User profile loaded', data);
           this.userProfile = data;
-          this.followersCount = this.userProfile.followers.length;
+          this.followingCount = this.userProfile.following.length;
         },
         error => {
           console.error('Error loading user profile', error);

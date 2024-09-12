@@ -1,10 +1,18 @@
 <div class="userdetails">
     <div class="row" *ngIf="userProfile">
         <div class="col-6">
-            <div class="div">
+            <div class="div" id="user">
                 <h1 id="username">{{userProfile.user.username}}</h1>
-                <p id="followers">Followers</p>
-                <p id="f_count">{{followersCount}}</p>
+                <div class="row">
+                    <div class="col">
+                        <p class="follow">Following</p>
+                        <p id="f_count">{{followingCount}}</p>
+                    </div>
+                    <div class="col">
+                        <p class="follow">Followers</p>
+                        <p id="f_count">{{followerCount}}</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-3">

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework import generics, permissions
 from .serializers import UserSerializer
 from django.contrib.auth.models import User
@@ -45,3 +45,29 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
         # Ensuring that only one profile is retrieved based on the authenticated user
         user = self.request.user
         return UserProfile.objects.get(user=user)
+    
+
+class FollowUserView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def post(self, request, pk):
+        user_profile = request.user.userprofile
+        user_to_follow = get_object_or_404(UserProfile, pk=pk)
+        
+        if user_to_follow in user_profile.following.all():
+            return Response({"detail": "you are already following this user."}, status=status.HTTP_400_BAD_REQUEST)
+
+        user_profile.following.add(user_to_follow)
+        return Response({"detail": "User followed successfully!"}, status=status.HTTP_200_OK)
+
+    
+    def delete(self, request, pk):
+        user_profile = request.user.userprofile
+        user_to_unfollow = get_object_or_404(UserProfile, pk=pk)
+        
+        if user_to_unfollow not in user_profile.following.all():
+            return Response({"detail": "you are not following this user."}, status=status.HTTP_400_BAD_REQUEST) 
+
+        user_profile.following.remove(user_to_unfollow)
+        return Response({"detail": "User unfollowed successfully!"}, status=status.HTTP_200_OK)
+        

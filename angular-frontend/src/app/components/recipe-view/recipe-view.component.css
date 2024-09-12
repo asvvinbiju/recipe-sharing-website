@@ -21,6 +21,12 @@
     border-bottom: solid black 1px;
 }
 
+.cook {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #title {
     font-family: Melodrama;
     font-size: 65px;
@@ -41,25 +47,38 @@
     margin-top: 30px;
 }
 
-#user {
+.cook > p {
     font-family: stardom;
     font-weight: bold;
     text-decoration: yellow solid 2px;
-    margin-left: 10px;
     font-size: 20px;
+    margin: 0;
 }
 
-#user > a {
+.cook > button {
+    height: 40px;
+    width: 100px;
+    background-color: orange;
+    color: white;
+}
+
+div[class='col-10 cook'] {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cook > a {
     font-family: stardom;
     font-weight: bold;
     text-decoration: underline yellow ;
-    margin-left: 10px;
+    margin: 20px;
     color: black;
     font-size: 25px;
 }
 
 #desc {
-    font-family: satoshi;
+    font-family: gambarino;
     font-size: 25px;
     margin-left: 10px;
     /* margin-top: 50px; */
@@ -83,6 +102,6 @@
 }
 
 .mtext {
-    font-family: satoshi;
+    font-family: gambarino;
     font-size: 20px;
 }

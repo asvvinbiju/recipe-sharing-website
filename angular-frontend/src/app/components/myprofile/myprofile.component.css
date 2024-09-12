@@ -13,11 +13,22 @@ body {
     margin-bottom: 50px;
 }
 
+#user {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
 
-#followers, #f_count {
+#user > .row {
+    width: 300px;
+    margin-top: 20px;
+}
+
+.follow, #f_count {
     text-align: center;
-    font-family: melodrama;
-    font-size: 30px;
+    font-family: zodiak;
+    font-size: 20px;
 }
 #username {
     text-align: center;

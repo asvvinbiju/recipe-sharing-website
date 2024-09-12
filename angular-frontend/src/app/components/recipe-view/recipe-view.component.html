@@ -1,9 +1,16 @@
 <div class="div" id="recipeframe">
     <div class="div" id="recipecontainer">
-        <h1 id="title">{{recipe.title}}</h1>
         <h1 class="rinfo col-8">SUBMITTED AT {{recipe.created_at}}</h1>
+        <h1 id="title">{{recipe.title}}</h1>
+        <div class="col-10 cook">
+            <a aria-disabled="true">by {{recipe.created_by}}</a>
+            <button *ngIf="authService.isLoggedIn()" class="btn" (click)="followUser(recipe.created_by_id)">
+                <span *ngIf="!recipe.is_following">follow</span>
+                <span *ngIf="recipe.is_following">following</span>
+            </button>
+            <button *ngIf="!authService.isLoggedIn()" class="btn" (click)="notFollowed()">follow</button>
+        </div>
         <div class="row" id="rdetails">
-            <p id="user">submitted by<a href="#">{{recipe.created_by}}</a></p>
             <p id="desc">{{recipe.description}}</p>
         </div>
         <div class="row" id="rimg">

@@ -49,3 +49,7 @@ class AllRecipeView(generics.ListAPIView):
 class RecipeView(generics.RetrieveAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_serializer_context(self):
+        return {'request' : self.request }

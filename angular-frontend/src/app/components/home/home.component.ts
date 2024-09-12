@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent {
 
   recipes: any;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.AllRecipes();
@@ -28,7 +29,11 @@ export class HomeComponent {
   }
 
   viewRecipe(id: number) {
-    this.router.navigate(['recipe-view', id])
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['recipe-view', id])
+    } else {
+      alert("Please login to view recipe details.")
+    }
   }
 
 }

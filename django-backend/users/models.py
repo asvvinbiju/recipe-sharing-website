@@ -5,7 +5,7 @@ from recipes.models import Recipe
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    following = models.ManyToManyField('self', symmetrical=False, related_name='follow', blank=True, default=0)
+    following = models.ManyToManyField('self', symmetrical=False, related_name='follow', blank=True)
     saved_recipes = models.ManyToManyField(Recipe, related_name='saved_by', blank=True)
     your_recipes = models.ManyToManyField(Recipe, related_name='created_recipe', blank=True)
 

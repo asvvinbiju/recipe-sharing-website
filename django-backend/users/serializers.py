@@ -21,10 +21,10 @@ class UserSerializer(serializers.ModelSerializer):
     
 class UserProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer()
-    followers = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    following = serializers.PrimaryKeyRelatedField(many=True, queryset=UserProfile.objects.all())
     saved_recipe = RecipeSerializer(many=True, read_only=True)
     your_recipe = RecipeSerializer(many=True, read_only=True)
 
     class Meta:
         model = UserProfile
-        fields = ['user', 'followers', 'saved_recipe', 'your_recipe']
+        fields = ['user', 'following', 'saved_recipe', 'your_recipe']
