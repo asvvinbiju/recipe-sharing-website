@@ -1,0 +1,32 @@
+
+.dashboard {
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav {
+    height: 100px;
+    width: 100%;
+    background-color:  white;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    border-right: 2px black solid;
+}
+
+.btn {
+    font-size: 30px;
+    font-family: Melodrama;
+    color: black;
+    font-weight: bold;
+}
+
+.btn > span {
+    margin-left: 10px;
+    text-decoration: underline orange;
+}

@@ -12,6 +12,9 @@ import { SubmitrecipeComponent } from './components/submitrecipe/submitrecipe.co
 import { UserRecipesComponent } from './components/user-recipes/user-recipes.component';
 import { SavedRecipesComponent } from './components/saved-recipes/saved-recipes.component';
 import { RecipeViewComponent } from './components/recipe-view/recipe-view.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
+import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { RecipeViewComponent } from './components/recipe-view/recipe-view.compon
     SubmitrecipeComponent,
     UserRecipesComponent,
     SavedRecipesComponent,
-    RecipeViewComponent
+    RecipeViewComponent,
+    DashboardComponent,
+    AdminLayoutComponent,
+    HomeLayoutComponent
   ],
   imports: [
     BrowserModule,

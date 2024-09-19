@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from .models import Recipe
+from .models import Recipe, Comment
 from users.models import UserProfile
-from .serializers import RecipeSerializer
+from .serializers import RecipeSerializer, CommentSerializer
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-# from rest_framework.response import Response
+from rest_framework.response import Response
+from rest_framework.decorators import action
+
 
 
 class RecipeListCreateView(generics.CreateAPIView):
@@ -53,3 +55,22 @@ class RecipeView(generics.RetrieveAPIView):
     
     def get_serializer_context(self):
         return {'request' : self.request }
+    
+    @action(detail=True, methods=['post'])
+    def like(self, request, pk=None):
+        recipe = self.get_object()
+        user = request.user
+        if recipe.likes.filter(id=user.id).exists():
+            recipe.likes.remove(user)
+        else:
+            recipe.likes.add(user)
+        return Response({'likes_count': recipe.likes.count()})
+
+    @action(detail=True, methods=['post'])
+    def comment(self, request, pk=None):
+        recipe = self.get_object()
+        serializer = CommentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(recipe=recipe, user=request.user)
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
