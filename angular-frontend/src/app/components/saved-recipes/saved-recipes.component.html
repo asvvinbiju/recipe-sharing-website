@@ -4,7 +4,7 @@
         <div class="card row">
             <img *ngIf="recipe.image" class="rimg col" [src]="recipe.image" alt="{{ recipe.title }}" />
             <div class="div col card-details">
-                <h3 class="card-title">{{ recipe.title }}</h3>
+                <button class="btn card-title" (click)="viewRecipe(recipe.id)">{{ recipe.title }}</button>
                 <p class="card-text">{{ recipe.description }}</p>
             </div>
         </div>

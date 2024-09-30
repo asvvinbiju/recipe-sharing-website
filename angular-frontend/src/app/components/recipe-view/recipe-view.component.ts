@@ -23,10 +23,10 @@ export class RecipeViewComponent {
 
   loadRecipe(id: number) {
     const header = this.authService.authHeaders();
-    this.http.get(`http://127.0.0.1:8000/api/recipe-view/${id}`, { headers: header }).subscribe( data => {
+    this.http.get(`http://127.0.0.1:8000/api/recipe-view/${id}`, { headers: header }).subscribe(data => {
       this.recipe = data;
       this.ingredients = JSON.parse(this.recipe.ingredients);
-      console.log(this.recipe);
+      // console.log(this.recipe);
     }, error => {
       console.log("Failed!", error)
     })
@@ -34,14 +34,59 @@ export class RecipeViewComponent {
 
   followUser(id: number) {
     const headers = this.authService.authHeaders();
-    this.http.post(`http://127.0.0.1:8000/api/user/follow/${id}/`, {}, { headers }).subscribe( (response) => {
+    this.http.post(`http://127.0.0.1:8000/api/user/follow/${id}/`, {}, { headers }).subscribe((response) => {
       console.log(response);
+      this.recipe.is_following = true;
     }, (error) => {
-      console.error("Failed!",error);
+      console.error("Failed!", error);
     })
+  }
+  
+  unfollowUser(id: number) {
+    const headers = this.authService.authHeaders();
+    this.http.delete(`http://127.0.0.1:8000/api/user/follow/${id}/`, { headers }).subscribe(
+      (response: any) => {
+        console.log('User unfollowed successfully', response.message);
+        this.recipe.is_following = false;
+      },
+      (error) => {
+        console.error('Error unfollowing user:', error);
+      }
+    );
   }
 
   notFollowed() {
     alert("Login or Signup to follow!")
   }
+
+  saveRecipe(recipeId: number) {
+    const headers = this.authService.authHeaders();
+    const url = `http://127.0.0.1:8000/api/user/save_recipe/${recipeId}/`;
+
+    this.http.post(url, {}, { headers }).subscribe(
+      (response: any) => {
+        console.log('Recipe saved:', response.message);
+        this.recipe.is_saved = true;
+      },
+      (error) => {
+        console.error('Error saving recipe:', error);
+      }
+    );
+  }
+
+  unsaveRecipe(recipeId: number) {
+    const headers = this.authService.authHeaders();
+    const url = `http://127.0.0.1:8000/api/user/save_recipe/${recipeId}/`;
+
+    this.http.delete(url, { headers }).subscribe(
+      (response: any) => {
+        console.log('Recipe removed from saved:', response.message);
+        this.recipe.is_saved = false;
+      },
+      (error) => {
+        console.error('Error unsaving recipe:', error);
+      }
+    );
+  }
+
 }

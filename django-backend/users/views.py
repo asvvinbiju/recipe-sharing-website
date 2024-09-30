@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import authenticate
 from .models import UserProfile
+from recipes.models import Recipe
 from .serializers import UserProfileSerializer
 
 
@@ -71,3 +72,27 @@ class FollowUserView(APIView):
         user_profile.following.remove(user_to_unfollow)
         return Response({"detail": "User unfollowed successfully!"}, status=status.HTTP_200_OK)
         
+    
+class SaveRecipeView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    def post(self, request, recipe_id):
+        user_profile = get_object_or_404(UserProfile, user=request.user)
+        recipe = get_object_or_404(Recipe, id=recipe_id)
+        
+        if recipe in user_profile.saved_recipes.all():
+            return Response({"message": "Recipe already saved."}, status=status.HTTP_400_BAD_REQUEST)
+        
+        user_profile.saved_recipes.add(recipe)
+        user_profile.save()
+        return Response({"message": "Recipe saved successfully."}, status=status.HTTP_200_OK)
+
+    def delete(self, request, recipe_id):
+        user_profile = get_object_or_404(UserProfile, user=request.user)
+        recipe = get_object_or_404(Recipe, id=recipe_id)
+
+        if recipe not in user_profile.saved_recipes.all():
+            return Response({"message": "Recipe not found in saved list."}, status=status.HTTP_400_BAD_REQUEST)
+        
+        user_profile.saved_recipes.remove(recipe)
+        user_profile.save()
+        return Response({"message": "Recipe removed from saved list."}, status=status.HTTP_200_OK)

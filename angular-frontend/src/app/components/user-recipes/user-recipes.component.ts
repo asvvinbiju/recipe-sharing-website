@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -13,7 +15,7 @@ export class UserRecipesComponent {
 
   recipes: any;
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadUserRecipe();
@@ -30,4 +32,11 @@ export class UserRecipesComponent {
     });
   }
 
+  viewRecipe(id: number) {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['recipe-view', id])
+    } else {
+      alert("Please login to view recipe details.")
+    }
+  }
 }

@@ -1,12 +1,18 @@
 <div class="div" id="recipeframe">
     <div class="div" id="recipecontainer">
         <h1 class="rinfo col-8">SUBMITTED AT {{recipe.created_at}}</h1>
-        <h1 id="title">{{recipe.title}}</h1>
+        <div class="title-cont">
+            <h1 id="title">{{recipe.title}}</h1>
+            <button class="btn" (click)="saveRecipe(recipe.id)" *ngIf="!recipe.is_saved"><i class="bi-bookmark icon"></i></button>
+            <button class="btn" (click)="unsaveRecipe(recipe.id)" *ngIf="recipe.is_saved"><i class="bi-bookmark-fill icon"></i></button>
+        </div>
         <div class="col-10 cook">
             <a aria-disabled="true">by {{recipe.created_by}}</a>
-            <button *ngIf="authService.isLoggedIn()" class="btn" (click)="followUser(recipe.created_by_id)">
-                <span *ngIf="!recipe.is_following">follow</span>
-                <span *ngIf="recipe.is_following">following</span>
+            <button *ngIf="authService.isLoggedIn() && !recipe.is_following" class="btn" (click)="followUser(recipe.created_by_id)">
+                <span>follow</span>
+            </button>
+            <button *ngIf="authService.isLoggedIn() && recipe.is_following" class="btn" (click)="unfollowUser(recipe.created_by_id)">
+                <span>following</span>
             </button>
             <button *ngIf="!authService.isLoggedIn()" class="btn" (click)="notFollowed()">follow</button>
         </div>
